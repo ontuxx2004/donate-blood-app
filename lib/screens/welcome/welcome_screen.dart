@@ -1,9 +1,9 @@
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../auth/login_screen.dart';
 import '../auth/signup_screen.dart';
-import '../../navigation/main_navigation.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -48,23 +48,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     super.dispose();
   }
 
-  // ============================================
-  // GET STARTED
-  // ============================================
-
-  void goToHome() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const MainNavigation(),
-      ),
-    );
-  }
-
-  // ============================================
-  // LOGIN
-  // ============================================
-
+  // Get Started opens Login
   void goToLogin() {
     Navigator.push(
       context,
@@ -73,10 +57,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       ),
     );
   }
-
-  // ============================================
-  // SIGNUP
-  // ============================================
 
   void goToSignup() {
     Navigator.push(
@@ -94,10 +74,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       body: SafeArea(
         child: Stack(
           children: [
-            // ==========================================
-            // TOP DECORATIVE CIRCLE
-            // ==========================================
-
+            // Top decorative circle
             Positioned(
               top: -70,
               left: -50,
@@ -111,10 +88,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
             ),
 
-            // ==========================================
-            // BOTTOM DECORATIVE CIRCLE
-            // ==========================================
-
+            // Bottom decorative circle
             Positioned(
               bottom: -90,
               right: -60,
@@ -128,10 +102,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
             ),
 
-            // ==========================================
-            // MAIN CONTENT
-            // ==========================================
-
+            // Main content
             Center(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(
@@ -141,10 +112,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // ==================================
-                    // BLOOD ICON
-                    // ==================================
-
+                    // Blood icon
                     Container(
                       width: 115,
                       height: 115,
@@ -168,10 +136,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
                     const SizedBox(height: 32),
 
-                    // ==================================
-                    // APP TITLE
-                    // ==================================
-
+                    // App title
                     const Text(
                       'Donate Blood',
                       textAlign: TextAlign.center,
@@ -197,14 +162,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
                     const SizedBox(height: 22),
 
-                    // ==================================
-                    // MOTIVATIONAL MESSAGE
-                    // ==================================
-
+                    // Animated motivational message
                     AnimatedSwitcher(
-                      duration: const Duration(
-                        milliseconds: 500,
-                      ),
+                      duration: const Duration(milliseconds: 500),
                       child: Text(
                         motivationalMessages[currentMessage],
                         key: ValueKey(currentMessage),
@@ -230,15 +190,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
                     const SizedBox(height: 40),
 
-                    // ==================================
-                    // GET STARTED BUTTON
-                    // ==================================
-
+                    // Get Started button
                     SizedBox(
                       width: double.infinity,
                       height: 55,
                       child: ElevatedButton(
-                        onPressed: goToHome,
+                        onPressed: goToLogin,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                           foregroundColor: primaryRed,
@@ -259,10 +216,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
                     const SizedBox(height: 20),
 
-                    // ==================================
-                    // LOGIN
-                    // ==================================
-
+                    // Login
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -289,10 +243,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
                     const SizedBox(height: 2),
 
-                    // ==================================
-                    // SIGNUP
-                    // ==================================
-
+                    // Signup
                     SizedBox(
                       width: double.infinity,
                       height: 48,
@@ -320,15 +271,26 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
                     const SizedBox(height: 15),
 
-                    // ==================================
-                    // FOOTER
-                    // ==================================
-
+                    // Footer
                     const Text(
                       'Every drop counts ❤️',
                       style: TextStyle(
                         color: Colors.white60,
                         fontSize: 13,
+                      ),
+                    ),
+
+                    const SizedBox(height: 8),
+
+                    // Developer credit
+                    const Text(
+                      'Developed by Talha Zubayer Ontu',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white70,
+                        fontSize: 11,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 0.4,
                       ),
                     ),
                   ],
